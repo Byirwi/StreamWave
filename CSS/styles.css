@@ -1,0 +1,315 @@
+/* Style général du corps de la page */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+
+/* Conteneur pour l'image de fond */
+.container_background {
+    position: relative;
+}
+
+/* Style de l'image d'arrière-plan */
+.background_img {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.background_img img {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Style de la barre de navigation */
+nav {
+    padding: 0 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #ffffff;
+    z-index: 2;
+    height: 50px;
+    background-color: black;
+}
+
+/* Centrage des éléments dans la barre de navigation */
+nav .gauche, 
+nav .droite {
+    display: flex;
+    align-items: center;
+}
+
+nav .gauche {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .gauche .onglets {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+nav .gauche .onglets p {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #909191;
+}
+
+nav .gauche .onglets p:hover {
+    color: #fff;
+}
+
+nav .gauche .onglets a {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #909191;
+    text-decoration: none;
+    background: none; /* Remove background */
+    padding: 0;       /* Remove padding */
+    font-weight: normal; /* Match font style with p */
+    transition: color 0.3s;
+    margin-top: -5px; /* Lève les liens de la nav de 5px */
+}
+
+nav .gauche .onglets a:hover {
+    color: #fff;
+}
+
+nav .droite {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .droite a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px; /* Ajout d'une marge pour espacer les images/icônes */
+    margin-top: -5px; /* Lève les liens de la nav de 5px */
+}
+
+nav .droite p {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Style pour les tests */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(75vh); /* Ajustable */
+}
+
+/* Style du formulaire */
+.form_style {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login-box h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.mail_password_box input {
+    display: flex;
+    row-gap: 5px;
+    justify-content: center;
+}
+
+/* Conteneur de connexion */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    width: 15%;
+    padding: 20px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-container.forgot {
+    width: 25%;         
+    margin: 100 px auto;
+    padding: 10px 0;
+}
+.login-container h1 {
+    color: #909191;
+    cursor: pointer;
+}
+
+.login-help {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.login-help a {
+    text-decoration: none;
+    color: white;
+}
+
+.login-help a:hover {
+    color: #909191;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px; /* Ajout d'une marge en haut pour descendre tout le conteneur */
+}
+
+.login_button {
+    color: #ffffff;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Identifiant de connexion */
+.identifier_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    height: 75%;
+    position: relative;
+    z-index: 2;
+    background: #000000cc;
+    width: 20%;
+    margin-bottom: 30px;
+    /* Ajout des propriétés pour descendre le bloc */
+    margin-top: 200px; /* Fait descendre le bloc de 200px */
+}
+
+.identifier_login a {
+    color: white;
+    text-decoration: none;
+}
+
+.s-identifier {
+    position: relative;
+    z-index: 3;
+    margin: 10px 10px 10px 10px;
+    width: fit-content;
+}
+
+/* Style des films et séries */
+.films-et-series {
+    background-color: #191a1a;
+    padding: 25px;
+}
+
+.films-et-series .section {
+    margin-bottom: 55px;
+}
+
+.films-et-series .section h2 {
+    color: #fff;
+}
+
+.films-et-series .section .list {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.films-et-series .section a {
+    padding-left: 5px;
+    transition: transform 0.25s;
+}
+
+.films-et-series .section a:hover {
+    transform: scale(1.05);
+}
+
+.films-et-series .section a img {
+    height: 140px;
+}
+
+/* Style du pied de page */
+footer {
+    background-color: #000;
+    padding: 25px 100px;
+    color: #909191;
+}
+
+footer .colonnes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .colonnes p {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #909191;
+}
+
+footer .colonnes p:hover {
+    color: #fff;
+}
+
+/* Center image */
+.center-image {
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+.content_resumer {
+    width: 45%;
+    margin: auto;
+    margin-top: 50px; /* Ajoute un espacement au-dessus du résumé */
+    color: rgb(254, 255, 255);
+}
+
+/* Ajoute un espacement pour le lecteur vidéo */
+#film-player {
+    margin-top: 50px;
+}
+/* Style de la page de connexion */
+button {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #5f5f5f;
+}
