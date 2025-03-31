@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Mot de passe oublié</title>
     <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="icon" href="../Public/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Public/favicon.png" type="image/png">
 </head>
 <body>
     <header>
