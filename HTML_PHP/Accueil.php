@@ -1,8 +1,6 @@
 <?php
 require_once '../PHP/auth_check.php';
-requireLogin(); // Vérifie que l'utilisateur est connecté
-
-// Le reste de votre code pour la page d'accueil...
+requireLogin(); // Cette fonction redirigera l'utilisateur si non connecté
 ?>
 
 <!DOCTYPE html>

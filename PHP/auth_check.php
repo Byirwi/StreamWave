@@ -7,7 +7,8 @@ function isUserLoggedIn() {
 }
 
 function redirectToLogin() {
-    header("Location: login.php");
+    // Ajustez l'URL selon l'emplacement de votre page de login
+    header("Location: https://streamwave.ldpa-tech.fr/HTML_PHP/Login.php");
     exit();
 }
 
