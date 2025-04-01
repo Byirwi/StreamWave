@@ -21,7 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows === 1 && $row = $result->fetch_assoc()) {
-            if ($userPassword == $row['password']) { // Comparaison directe des mots de passe
+            // Vérification du mot de passe haché
+            if (password_verify($userPassword, $row['password'])) {
                 $_SESSION['user_id'] = $row['id'];
                 header("Location: Accueil.php"); // Redirection vers la page d'accueil
                 exit();

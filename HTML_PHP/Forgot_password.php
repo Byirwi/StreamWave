@@ -7,6 +7,9 @@ require_once(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "PHP" 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username     = trim($_POST['username']);    // Récupération et nettoyage du nom d'utilisateur
     $new_password = trim($_POST['new_password']); // Récupération et nettoyage du nouveau mot de passe
+    
+    // Hachage du nouveau mot de passe
+    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
     // Vérification de l'existence de l'utilisateur dans la base de données
     $query = "SELECT id FROM login_streamwave WHERE username = ?";
@@ -18,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Mise à jour du mot de passe dans la base de données
             $updateQuery = "UPDATE login_streamwave SET password = ? WHERE username = ?";
             if ($stmtUpdate = $conn->prepare($updateQuery)) {
-                $stmtUpdate->bind_param("ss", $new_password, $username);
+                $stmtUpdate->bind_param("ss", $hashed_password, $username);
                 if ($stmtUpdate->execute()) {
                     $success = "Mot de passe mis à jour avec succès. Vous pouvez désormais vous connecter.";
                 } else {

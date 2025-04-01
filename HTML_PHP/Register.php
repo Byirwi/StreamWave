@@ -5,6 +5,9 @@ require_once(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "PHP" 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']); // Récupération et nettoyage du nom d'utilisateur
     $password = trim($_POST['password']); // Récupération et nettoyage du mot de passe
+    
+    // Hachage du mot de passe
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Vérification de l'existence de l'utilisateur dans la base de données
     $queryCheck = "SELECT id FROM login_streamwave WHERE username = ?";
@@ -15,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             $error = "Nom d'utilisateur déjà existant.";
         } else {
-            // Insertion d'un nouvel utilisateur dans la base de données
+            // Insertion d'un nouvel utilisateur dans la base de données avec le mot de passe haché
             $insertQuery = "INSERT INTO login_streamwave (username, password) VALUES (?, ?)";
             if ($stmtInsert = $conn->prepare($insertQuery)) {
-                $stmtInsert->bind_param("ss", $username, $password);
+                $stmtInsert->bind_param("ss", $username, $hashed_password);
                 if ($stmtInsert->execute()) {
                     $success = "Compte créé avec succès. Vous pouvez maintenant vous connecter.";
                 } else {
