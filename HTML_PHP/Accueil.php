@@ -39,7 +39,7 @@ requireLogin(); // Cette fonction redirigera l'utilisateur si non connecté
 <section class="films-et-series">
       <!-- Les tendances -->
       <section class="section tendances">
-        <h2>Test tache cron</h2>
+        <h2>Tendances actuelles</h2>
         <div class="list">
             <a href=""><img src="..\Public\img films_series\tendances\p1.PNG" alt=""></a>
             <a href=""><img src="..\Public\img films_series\tendances\p2.PNG" alt=""></a>
