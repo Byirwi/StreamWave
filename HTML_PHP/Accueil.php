@@ -1,3 +1,10 @@
+<?php
+require_once '../PHP\auth_check.php';
+requireLogin(); // Vérifie que l'utilisateur est connecté
+
+// Le reste de votre code pour la page d'accueil...
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -55,7 +62,7 @@
       <section class="section series-divers">
         <h2>Séries divers</h2>
         <div class="list">
-          <a href="Film_detail\Jessica_jones.html"><img src="..\Public\img films_series\séries divers\o3.PNG" alt=""></a> <!-- ..\Ressources\img films_series\séries divers\r1.PNG -->
+          <a href="Film_detail\Jessica_jones.php"><img src="..\Public\img films_series\séries divers\o3.PNG" alt=""></a> <!-- ..\Ressources\img films_series\séries divers\r1.PNG -->
           <a href=""><img src="..\Public\img films_series\séries divers\r1.PNG" alt=""></a>
           <a href=""><img src="..\Public\img films_series\séries divers\tv1.PNG" alt=""></a>
           <a href=""><img src="..\Public\img films_series\séries divers\tv2.PNG" alt=""></a>
