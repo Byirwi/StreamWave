@@ -20,7 +20,7 @@ requireLogin(); // Cette fonction redirigera l'utilisateur si non connecté
         <img src="..\Public\Logo StreamWave.png" alt="" height="80">
       </a>
         <div class="onglets">
-          <a href="Accueil.php">Accueil</a>
+          <a href="Accueil.php">test github</a>
           <a href="#">Séries TV</a>
           <a href="#">Films</a>
           <a href="#">Programmes originaux</a>
