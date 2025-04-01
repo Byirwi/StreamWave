@@ -24,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmtInsert->bind_param("ss", $username, $hashed_password);
                 if ($stmtInsert->execute()) {
                     $success = "Compte créé avec succès. Vous pouvez maintenant vous connecter.";
+                    // Redirection vers la page de connexion après 2 secondes
+                    header("refresh:2;url=Login.php");
                 } else {
                     $error = "Erreur lors de la création du compte.";
                 }
