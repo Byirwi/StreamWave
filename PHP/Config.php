@@ -1,39 +1,63 @@
 <?php
-// Fonction pour charger les variables d'environnement
-function loadEnv($path) {
-    if (!file_exists($path)) {
-        return false;
-    }
-    
-    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        if (strpos($line, '=') !== false && strpos(trim($line), '#') !== 0) {
-            list($key, $value) = explode('=', $line, 2);
-            $key = trim($key);
-            $value = trim($value);
-            
-            putenv("$key=$value");
-            $_ENV[$key] = $value;
-            $_SERVER[$key] = $value;
-        }
-    }
-    return true;
+
+// Paramètres de connexion à la base de données
+
+$servername = "localhost"; // Sur o2switch, le serveur de base de données est généralement "localhost"
+
+$username   = "delo5366_StreamWave_Account"; // Votre nom d'utilisateur de base de données
+
+$password   = "X2E_n!o9pjCriYnuKwT@rgaQ"; // Votre mot de passe
+
+$dbname     = "delo5366_StreamWave"; // Nom de votre base de données
+
+
+
+// Création de la connexion à la base de données
+
+$conn = new mysqli($servername, $username, $password);
+
+if ($conn->connect_error) {
+
+    die("Échec de la connexion : " . $conn->connect_error);
+
 }
 
-// Charger le fichier .env depuis la racine du projet
-// Note: __DIR__ . '/../../.env' remonte de deux niveaux depuis le dossier php
-// Si votre fichier php/config.php est directement à un niveau en dessous de la racine,
-// utilisez plutôt __DIR__ . '/../.env'
-loadEnv(__DIR__ . '/../.env');
 
-// Utiliser les variables d'environnement pour la connexion à la base de données
-$servername = getenv('DB_HOST'); 
-$username = getenv('DB_USERNAME');
-$password = getenv('DB_PASSWORD');
-$dbname = getenv('DB_NAME');
 
-// Le reste de votre code de connexion reste inchangé
-// Par exemple:
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// ou
-// $bdd = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+// Création de la base de données si elle n'existe pas encore
+
+$dbQuery = "CREATE DATABASE IF NOT EXISTS $dbname";
+
+if (!$conn->query($dbQuery)) {
+
+    die("Erreur de création de la base de données : " . $conn->error);
+
+}
+
+
+
+// Sélection de la base de données pour l'utiliser
+
+$conn->select_db($dbname);
+
+
+
+// Création de la table des utilisateurs si elle n'existe pas encore
+
+$tableQuery = "CREATE TABLE IF NOT EXISTS login_streamwave (
+
+    id SERIAL PRIMARY KEY,
+
+    username VARCHAR(50) NOT NULL,
+
+    password VARCHAR(50) NOT NULL
+
+)";
+
+if (!$conn->query($tableQuery)) {
+
+    die("Erreur de création de la table : " . $conn->error);
+
+}
+
+?>
