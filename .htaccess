@@ -1,3 +1,6 @@
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^streamwave\.ldpa\-tech\.fr$
+RewriteRule ^/?$ "https\:\/\/streamwave\.ldpa\-tech\.fr\/HTML_PHP\/PageDeGarde\/Garde\.php" [R=301,L]
+
